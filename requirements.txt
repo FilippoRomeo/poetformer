@@ -1,0 +1,10 @@
+transformers
+datasets
+peft
+accelerate
+bitsandbytes
+sentencepiece
+scipy
+scikit-learn
+wandb
+gradio
