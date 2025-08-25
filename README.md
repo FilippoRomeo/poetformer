@@ -1,4 +1,4 @@
-# ml-institute-week-6
+# Poetformer
 # 🌟 Poetformer: Fine-Tuned Poetry Generation with Mistral 7B
 
 **Poetformer** is a poetry generation app that compares outputs from:
