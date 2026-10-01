@@ -1,110 +1,83 @@
 # Poetformer
-# 🌟 Poetformer: Fine-Tuned Poetry Generation with Mistral 7B
 
-**Poetformer** is a poetry generation app that compares outputs from:
-- The **base** `mistralai/Mistral-7B-v0.1` model
-- A **LoRA fine-tuned** version trained on public-domain poetry (Gutenberg corpus)
+Fine-tuned poetry generation with Mistral 7B and LoRA.
 
-Built with ❤️ using Streamlit, Hugging Face Transformers, PEFT, and PyTorch.
+Poetformer is a poetry-generation experiment that compares output from:
 
----
+- the base `mistralai/Mistral-7B-v0.1` model;
+- a LoRA fine-tuned version trained on public-domain poetry from Project Gutenberg.
 
-## 🌍 Demo
+The project uses Streamlit, Hugging Face Transformers, PEFT, and PyTorch.
 
-Run locally with:
+## Features
+
+- Compare base and fine-tuned model output from the same prompt
+- Instruction-style prompting for stylistic control
+- Theme and emotion-driven generation
+- Lightweight LoRA adapter training
+
+## Quick start
+
+### Clone
+
 ```bash
-streamlit run compare_app.py
-```
-
----
-
-## 🔧 Features
-
-- Compare fine-tuned vs base model poetry output on the same prompt
-- Built-in instruction-style prompt format for stylistic control
-- Emotion- and theme-driven input (e.g. "loneliness", "first snow", "melancholy")
-- Lightweight LoRA adapter (trainable in 1 GPU session)
-
----
-
-## 🚀 Quickstart
-
-### 1. Clone Repo
-```bash
-git clone https://github.com/yourusername/poetformer.git
+git clone https://github.com/FilippoRomeo/poetformer.git
 cd poetformer
 ```
 
-### 2. Install Dependencies
-Make sure you're using a Python 3.10+ Conda environment with CUDA-compatible PyTorch:
+### Install dependencies
+
+Use Python 3.10+ with a CUDA-compatible PyTorch installation when running on GPU:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the App
+### Run the comparison app
+
 ```bash
 streamlit run compare_app.py
 ```
 
----
+## Project structure
 
-## 🌐 Project Structure
-
-```
+```text
 poetformer/
-├── app/                     # Gradio or Streamlit apps
-├── data/                    # Raw and processed poetry datasets
-├── generate/                # Inference scripts
-├── models/                  # LoRA fine-tuned model directory
-├── training/                # Fine-tuning pipeline
-├── compare_app.py          # Streamlit app
+├── app/
+├── data/
+├── generate/
+├── models/
+├── training/
+├── compare_app.py
 └── README.md
 ```
 
----
+## Fine-tuning
 
-## 🔄 Fine-Tuning (LoRA)
+PEFT is used to fine-tune the base model with LoRA:
 
-We use [PEFT](https://github.com/huggingface/peft) to fine-tune the base model on poetic outputs:
 ```bash
 python training/fine_tune.py
 ```
 
-Model is saved to `models/lora/`.
+The adapter is saved under `models/lora/`.
 
----
+## Example prompt
 
-## 🌈 Example Prompt
-
-Enter a freeform theme, emotion, or instruction:
-```
+```text
 Write a poem about dawn breaking over a quiet forest.
 ```
 
-Outputs:
-- ✨ LoRA: Poetic, stanza-based, verse-formatted
-- 🧱 Base: More generic or prose-like
+The comparison app shows the base-model and LoRA outputs side by side.
 
----
+## Credits
 
-## 🤝 Contributing
-
-Pull requests welcome! Ideas:
-- Add rhyme detection/metrics
-- Integrate feedback buttons
-- Train on emotional poetry corpora
-
----
-
-## 🎓 Credits
-
-- [Mistral-7B](https://huggingface.co/mistralai/Mistral-7B-v0.1) by MistralAI
-- [Gutenberg Poetry Dataset](https://huggingface.co/datasets/biglam/gutenberg-poetry-corpus)
-- [Hugging Face Transformers](https://huggingface.co/transformers)
+- [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.1)
+- [Gutenberg Poetry Corpus](https://huggingface.co/datasets/biglam/gutenberg-poetry-corpus)
+- [Hugging Face Transformers](https://huggingface.co/docs/transformers/)
+- [PEFT](https://github.com/huggingface/peft)
 - [Streamlit](https://streamlit.io/)
 
----
+## License
 
-## 📅 License
-
-Apache 2.0. Free to use for research and remix.
+Apache 2.0.
